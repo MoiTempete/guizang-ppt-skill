@@ -862,6 +862,8 @@
 
   /* 三层架构纯色块拼图 (参考图 4 + 6) — 横排等高色块 */
   .stack-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6vw;flex:1;margin-top:6vh;align-items:stretch}
+  .stack-row[data-cols="4"]{grid-template-columns:repeat(4,1fr)}
+  .stack-row[data-cols="5"]{grid-template-columns:repeat(5,1fr)}
   .stack-block{
     display:flex;flex-direction:column;
     padding:3.2vh 1.8vw 2.4vh;
@@ -924,7 +926,7 @@
   /* category label / eyebrow / section tag — small, bold, uppercase */
   .t-cat{
     font-family:var(--mono);
-    font-size:14px;font-weight:600;
+    font-size:15px;font-weight:600;
     letter-spacing:.15em;text-transform:uppercase;
     color:var(--text-helper);line-height:1.3
   }
@@ -983,6 +985,10 @@
   .slide.dark .t-cat,.slide.dark .t-meta,.slide.dark .t-helper{color:rgba(255,255,255,.62)}
   .slide.dark .t-body-sm{color:rgba(255,255,255,.78)}
   .slide.dark .t-body,.slide.dark .t-body-emp,.slide.dark .t-h-prod{color:var(--paper)}
+  /* 防止 dark 主题下 card-fill 内的文字被全局反白覆盖导致白底白字 */
+  .slide.dark .card-fill .t-cat,.slide.dark .card-fill .t-meta{color:var(--text-helper)}
+  .slide.dark .card-fill .t-body-sm{color:var(--text-secondary)}
+  .slide.dark .card-fill .t-body,.slide.dark .card-fill .t-body-emp,.slide.dark .card-fill .t-h-prod{color:var(--text-primary)}
   .split-half .half.b-ink .t-cat,.split-half .half.b-ink .t-meta,.split-half .half.b-ink .t-helper{color:rgba(255,255,255,.62)}
   .split-half .half.b-ink .t-body-sm{color:rgba(255,255,255,.78)}
   .split-half .half.b-ink .t-body,.split-half .half.b-ink .t-body-emp,.split-half .half.b-ink .t-h-prod{color:var(--paper)}
